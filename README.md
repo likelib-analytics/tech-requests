@@ -7,6 +7,23 @@ Bug reports and feature requests for LikeLib team
 
 Method `get_account_info` [described in docs](https://github.com/heshu-by-lab/likelib-utonhack-2020) is not available. Method `get_account` should be used instead.
 
+## 2. Bugged address
+
+```
+.client/get_account_info --address "3MoV75RVds2D534XcgU6gnrTahSs"
+
+{'method': 'get_account',
+ 'result': {'address': '3MoV75RVds2D534XcgU6gnrTahSs',
+  'balance': '13119',
+  'nonce': 2,
+  'transaction_hashes': ['SVXvZYm7/gJ3K8CoSBeVBOfVBmgt6OuEOcxGtpqjDYM=',
+   'SVXvZYm7/gJ3K8CoSBeVBOfVBmgt6OuEOcxGtpqjDYM='],
+  'type': 'Client'},
+ 'status': 'ok'}
+```
+
+There are 2 equal transaction hashes but `/get_transaction` gives only one transaction with this hash. Either `get_account_info` returns a duplicate or `get_transaction` doesnt return all available data.
+
 # Feature requests
 
 ## 1. There's no way to get hash of the block.
